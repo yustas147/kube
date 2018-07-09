@@ -1,0 +1,9 @@
+kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+
+kubectl proxy &
+
+kubectl -n kube-system edit service kubernetes-dashboard
+
+#You should see yaml representation of the service. Change type: ClusterIP to type: NodePort and save file. If it's already changed go to next step.
+
+kubectl -n kube-system get service kubernetes-dashboard
